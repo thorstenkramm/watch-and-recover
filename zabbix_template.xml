@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>3.2</version>
+    <date>2018-11-03T18:41:20Z</date>
+    <groups>
+        <group>
+            <name>Template Watch and Recover</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>Template Watch and Recover</template>
+            <name>Template Watch and Recover</name>
+            <description>See https://github.com/thorstenkramm/watch-and-recover</description>
+            <groups>
+                <group>
+                    <name>Template Watch and Recover</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>Cron</name>
+                </application>
+                <application>
+                    <name>Proc Recovery</name>
+                </application>
+            </applications>
+            <items/>
+            <discovery_rules>
+                <discovery_rule>
+                    <name>Watch and Recover Jobs</name>
+                    <type>2</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>proc.recovery.jobs</key>
+                    <delay>0</delay>
+                    <status>0</status>
+                    <allowed_hosts/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions/>
+                    </filter>
+                    <lifetime>1</lifetime>
+                    <description>Retrieve the list of jobs containing the processes which are under the control of the watch-and-recover.py script.</description>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>Watch and Recover &quot;{#JOB_NAME}&quot; messages</name>
+                            <type>2</type>
+                            <snmp_community/>
+                            <multiplier>0</multiplier>
+                            <snmp_oid/>
+                            <key>proc.recovery.job_message[{#JOB_NAME}]</key>
+                            <delay>0</delay>
+                            <history>1</history>
+                            <trends>0</trends>
+                            <status>0</status>
+                            <value_type>4</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>Watch and Recover {#JOB_NAME}</name>
+                                </application_prototype>
+                            </application_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Number of &quot;{#WATCH_FOR}&quot; processes running (Job: {#JOB_NAME})</name>
+                            <type>2</type>
+                            <snmp_community/>
+                            <multiplier>0</multiplier>
+                            <snmp_oid/>
+                            <key>trapper.proc.num[{#JOB_NAME}]</key>
+                            <delay>0</delay>
+                            <history>2</history>
+                            <trends>4</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>The number of running '{#WATCH_FOR}'  processes.&#13;
+If the process '{#WATCH_FOR}' is not running&#13;
+it will be recovered by executing '{#RECOVER_WITH}'</description>
+                            <inventory_link>0</inventory_link>
+                            <applications/>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes>
+                                <application_prototype>
+                                    <name>Watch and Recover {#JOB_NAME}</name>
+                                </application_prototype>
+                            </application_prototypes>
+                        </item_prototype>
+                    </item_prototypes>
+                    <trigger_prototypes/>
+                    <graph_prototypes/>
+                    <host_prototypes/>
+                </discovery_rule>
+            </discovery_rules>
+            <httptests/>
+            <macros/>
+            <templates/>
+            <screens/>
+        </template>
+    </templates>
+</zabbix_export>
