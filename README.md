@@ -12,10 +12,10 @@ The script has very few dependencies so it can be used on Linux and AIX.
 ## Installation
 Install the script in some directory and make it executable
 ```bash
-curl -s -L http://github.com/thorstenkramm > /usr/local/bin/watch-and-recover
+curl -L -s https://github.com/thorstenkramm/watch-and-recover/raw/master/watch-and-recover.py > /usr/local/bin/watch-and-recover
 chmod +x /usr/local/bin/watch-and-recover
 ```
-Create a configuration using the example and adjust it to your needs.
+Create a configuration using the [example](watch-and-recover.cfg) and adjust it to your needs.
 
 ## Monitoring with Zabbix
 The script can report the status of all supervised processes and the status of the recovery actions to a Zabbix-Server using a local installed Zabbix-Sender. In order to connect the script to a Zabbix-Server you must import the appropriated template and assign it to the host the script runs on. 
@@ -24,7 +24,28 @@ The script can report the status of all supervised processes and the status of t
 The usage of Zabbix-Sender is optional. If you remove the `zabbix_sender_bin` option from the config file, the script works well without sending any data to a Zabbix-Server.
 
 ## Usage
-`watch-and-recover -h` prints a brief help message. If the config is placed in `~/.watch-and-recover.cfg` the script can be invoked without any parameters.
+`watch-and-recover -h` prints a brief help message. 
+
+```bash
+usage: watch-and-recover.py [-h] [-v] [-pd] [-pj] [-pg] [-c CONFIG]
+
+Watch and recover processes
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -v, --verbose         increases log verbosity for each occurrence.
+  -pd, --print-discovery
+                        Dump the discovery json object to the console. Forces
+                        sending of the discovery too.
+  -pj, --print-jobs     Dump the list of watch jobs
+  -pg, --print-groups   Dump the list of groups
+  -c CONFIG, --config CONFIG
+                        Location of config. If not given ~/.watch-and-
+                        recover.cfg is taken.
+```
+
+If the config is placed in `~/.watch-and-recover.cfg` the script can be invoked without any parameters.
+
 
  ## Example
 Look at the following snipped for a config file
