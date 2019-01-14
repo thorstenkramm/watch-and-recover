@@ -112,7 +112,7 @@ class WatchAndRecover:
         for name, group in self.__groups.iteritems():
             if self.__group_processes[name] >= group['members']:
                 # All processes of the group are running
-                self.__delete_group_state(self, name)
+                self.__delete_group_state(name)
 
     def __get_job_state(self, job):
         if job['group'] is not None:
@@ -144,7 +144,7 @@ class WatchAndRecover:
 
     def __delete_group_state(self, name):
         if name in self.__state['groups']:
-            self.__message_append('global', "All processes of group \"%\" are back" % name, send=True)
+            self.__message_append('global', "All processes of group '%s' are back" % name, send=True)
             del self.__state['groups'][name]
 
     def __recover(self, job):
